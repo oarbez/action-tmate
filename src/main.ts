@@ -36,10 +36,10 @@ async function run() {
       await execShellCommand('sudo apt-get install -y tmate openssh-client');
     }
     core.debug("Installed dependencies successfully");
-    try {
-      await execShellCommand(`echo -e 'y\n'|ssh-keygen -q -t rsa -N "" -f ~/.ssh/id_rsa`);
-    } catch { }
-    core.debug("Generated SSH-Key successfully")
+//     try {
+//       await execShellCommand(`echo -e 'y\n'|ssh-keygen -q -t rsa -N "" -f ~/.ssh/id_rsa`);
+//     } catch { }
+//     core.debug("Generated SSH-Key successfully")
     core.debug("Creating new session...")
     await execShellCommand('tmate -S /tmp/tmate.sock new-session -d');
     await execShellCommand('tmate -S /tmp/tmate.sock wait tmate-ready');
